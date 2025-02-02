@@ -7,7 +7,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
     providedIn: 'root',
 })
 export class CodeGeneratorService {
-    private readonly apiUrl = 'http://localhost:3000/api/generate';
+    private readonly apiUrl = 'https://festudio-be.onrender.com/api/generate';
 
     constructor(private http: HttpClient) {}
 
