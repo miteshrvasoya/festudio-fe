@@ -2,6 +2,7 @@ import { AfterViewChecked, Component, ElementRef, Renderer2, ViewChild } from '@
 import { CodeGeneratorService } from '../shared/services/code-generator.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {GoogleAnalyticsService} from '../shared/services/google-analytics.service';
 
 @Component({
   selector: 'app-code-generator',
@@ -25,7 +26,13 @@ export class CodeGeneratorComponent implements AfterViewChecked {
 
   private isPreviewRendered = false;
 
-  constructor(private codeGeneratorService: CodeGeneratorService, private spinner: NgxSpinnerService) {}
+  constructor(private codeGeneratorService: CodeGeneratorService, private spinner: NgxSpinnerService, private gaService: GoogleAnalyticsService) {
+    // Track initial page view
+    this.gaService.trackPageView(window.location.pathname);
+
+    // Track events
+    this.gaService.trackEvent('button_click', { 'button_name': 'generate_code' });
+  }
 
   ngAfterViewChecked() {
     // Ensure the preview is rendered when switching back to "Preview" mode
