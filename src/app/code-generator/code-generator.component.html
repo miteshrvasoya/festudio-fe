@@ -1,0 +1,88 @@
+<div class="code-generator-container">
+  <!-- Main Layout -->
+  <div class="code-gen-main">
+
+    <!-- Left Section: Chat Input -->
+    <div class="code-gen-chat-section">
+      <header class="code-gen-header">
+        <h1>AI Code Generator</h1>
+        <p>Generate and preview UI components instantly.</p>
+      </header>
+
+      <div class="code-gen-input-section">
+        <label for="prompt">Enter your prompt:</label>
+        <textarea id="prompt" [(ngModel)]="prompt" placeholder="Describe the UI component..."></textarea>
+
+        <label for="cssFramework">Select CSS Framework:</label>
+        <select id="cssFramework" [(ngModel)]="cssFramework">
+          <option value="Tailwind CSS">Tailwind CSS</option>
+          <option value="Bootstrap">Bootstrap</option>
+          <option value="Vanilla CSS">Vanilla CSS</option>
+        </select>
+
+        <label for="jsFramework">Select JavaScript Framework:</label>
+        <select id="jsFramework" [(ngModel)]="jsFramework">
+          <option value="Plain JavaScript">Plain JavaScript</option>
+          <option value="Angular">Angular</option>
+          <option value="React">React</option>
+        </select>
+
+        <label for="complexity">Select Complexity:</label>
+        <select id="complexity" [(ngModel)]="complexity">
+          <option value="Basic">Basic</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+
+        <button class="generate-btn" (click)="generateCode()">Generate Code</button>
+      </div>
+    </div>
+
+
+    <!-- Right Section: Preview and Code -->
+    <div class="code-gen-output-section">
+
+      <!-- Tabs for Preview and Code -->
+      <div class="code-gen-tabs">
+        <button [class.active]="viewMode === 'preview'" (click)="setViewMode('preview')">Preview</button>
+        <button [class.active]="viewMode === 'code'" (click)="setViewMode('code')">Code View</button>
+      </div>
+
+      <!-- Preview Section -->
+      <div *ngIf="viewMode === 'preview'" class="code-gen-preview">
+        <div class="code-gen-preview-box">
+          <div #previewContainer></div>
+        </div>
+      </div>
+
+      <!-- Code View -->
+      <div *ngIf="viewMode === 'code'" class="code-gen-code-view">
+
+        <!-- Code Tabs -->
+        <div class="code-gen-code-tabs">
+          <button [class.active]="activeTab === 'html'" (click)="setActiveTab('html')">HTML</button>
+          <button [class.active]="activeTab === 'css'" (click)="setActiveTab('css')">CSS</button>
+          <button [class.active]="activeTab === 'js'" (click)="setActiveTab('js')">JavaScript</button>
+        </div>
+
+        <!-- Code Sections with Copy Button -->
+        <div class="code-gen-tab-content">
+          <div *ngIf="activeTab === 'html'" class="code-section">
+            <button class="copy-btn" *ngIf="generatedHtml.length" (click)="copyCode(generatedHtml)">Copy</button>
+            <pre><code>{{ generatedHtml }}</code></pre>
+          </div>
+          <div *ngIf="activeTab === 'css'" class="code-section">
+            <button class="copy-btn" *ngIf="generatedCss.length" (click)="copyCode(generatedCss)">Copy</button>
+            <pre><code>{{ generatedCss }}</code></pre>
+          </div>
+          <div *ngIf="activeTab === 'js'" class="code-section">
+            <button class="copy-btn" *ngIf="generatedJs.length" (click)="copyCode(generatedJs)">Copy</button>
+            <pre><code>{{ generatedJs }}</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>

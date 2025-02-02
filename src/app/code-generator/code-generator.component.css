@@ -1,0 +1,213 @@
+/* General Container */
+.code-generator-container {
+  border: 3px solid #878787;
+  font-family: 'Arial', sans-serif;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  /*border: 1px solid #ddd;*/
+  border-radius: 8px;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Main Layout */
+.code-gen-main {
+  border: 1px solid red;
+  display: flex;
+  gap: 10px;
+
+  height: 100%;
+}
+
+/* Left Section - Chat */
+.code-gen-chat-section {
+  width: 25%;
+  height: 95vh;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.code-gen-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.code-gen-header h1 {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.code-gen-header p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Chat Input */
+.code-gen-input-section {
+  margin-bottom: 20px;
+}
+
+.code-gen-input-section label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#prompt {
+  width: 100%;
+  height: 50vh;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+.code-gen-input-section select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 20px auto 10px auto;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.generate-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Right Section - Preview & Code */
+.code-gen-output-section {
+  width: 75%;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* Tabs */
+.code-gen-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.code-gen-tabs button {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.code-gen-tabs button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Preview Section */
+.code-gen-preview {
+  height: 90%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+.code-gen-preview-box {
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+/* Code View */
+.code-gen-code-view {
+  height: fit-content;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+/* Code Tabs */
+.code-gen-code-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.code-gen-code-tabs button {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.code-gen-code-tabs button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Code Sections */
+.code-gen-tab-content .code-section {
+  height: fit-content;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f7f7f7;
+}
+
+/* Copy Button */
+.code-gen-tab-content .copy-btn {
+  width: fit-content;
+  padding: 5px 10px;
+  margin: 10px 10px 10px auto;
+  font-size: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.code-gen-tab-content .copy-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Code Formatting */
+pre {
+  background-color: #2b2b2b;
+  padding: 15px;
+  height: 70vh;
+  border-radius: 6px;
+  overflow-x: auto;
+  overflow-y: scroll;
+  color: white;
+}
